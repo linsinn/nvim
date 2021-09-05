@@ -1,0 +1,33 @@
+let mapleader=" "
+
+set number
+set relativenumber
+
+set ignorecase
+set smartcase
+
+set hlsearch
+
+set surround
+set multiple-cursors
+set exchange
+set easymotion
+
+map H ^
+map L $
+map ; :
+map <C-n> :nohlsearch<CR>
+map <leader>r <Action>(RenameElement)
+map <leader>w :w<CR>
+map <leader>q :q<CR>
+map <leader>e <Plug>(easymotion-s)
+map <leader>f <Action>(FindInPath)
+map <leader>s <Action>(SearchEverywhere)
+imap jj <Esc>
+map <leader>f <Action>(FindInPath)
+
+nmap n nzz
+nmap N Nzz
+
+set highlightedyank
+let g:highlightedyank_highlight_duration = "2000"
