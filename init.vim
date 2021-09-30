@@ -52,15 +52,26 @@ syntax on
 
 set number
 set relativenumber
-set clipboard+=unnamedplus
 set ignorecase
 set smartcase
 
 
 " ============================
-" Color
+" fonts and color
 " ============================
+let g:PaperColor_Theme_Options = {
+	\   'theme': {
+	\     'default': {
+	\       'transparent_background' : 1
+  \     },
+	\     'default.dark': {
+	\       'transparent_background' : 1
+  \     }
+  \   }
+  \ }
+highlight comment cterm=italic
 colorscheme PaperColor
+set background=dark
 
 
 " ============================
@@ -74,6 +85,7 @@ imap jj <Esc>
 
 nmap <silent> <leader>w :w<Cr>
 nmap <silent> <leader>q :q<Cr>
+
 nmap <silent> <C-n> :nohlsearch<Cr>
 
 nmap <F8> :NERDTreeToggle<Cr>
@@ -83,7 +95,7 @@ nmap <F8> :NERDTreeToggle<Cr>
 " Rust
 " ============================
 let g:rustfmt_autosave = 1
-
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 
 
 
@@ -108,3 +120,34 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
+
+
+" ============================
+" copy and paste
+" ============================
+nmap Y y$
+set clipboard+=unnamedplus
+let g:clipboard = {
+	\   'name': 'win32yank-wsl',
+	\   'copy': {
+	\      '+': 'win32yank.exe -i --crlf',
+	\      '*': 'win32yank.exe -i --crlf',
+	\    },
+	\   'paste': {
+	\      '+': 'win32yank.exe -o --lf',
+	\      '*': 'win32yank.exe -o --lf',
+	\   },
+	\   'cache_enabled': 0,
+	\ }
+
+
+" ============================
+" fzf
+" ============================
+nmap <silent> <leader>ff :Files<Cr>
+nmap <silent> <leader>fs :Rg<Cr>
+nmap <silent> <leader>ft :Tags<Cr>
+nmap <silent> <leader>fb :Buffers<Cr>
+nmap <silent> <leader>fr :History<Cr>
+nmap <silent> <leader>fh :History:<Cr>
+
