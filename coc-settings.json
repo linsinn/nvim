@@ -1,5 +1,6 @@
 {
 	"rust-analyzer.server.path": "/home/sinn/.cargo/bin/rust-analyzer",
 	"workspace.bottomUpFiletypes": ["python"],
-	"coc.preferences.rootPatterns": [".vim-workspace"]
+	"coc.preferences.rootPatterns": [".vim-workspace"],
+	"snippets.userSnippetsDirectory": "~/.config/nvim/snippets"
 }
