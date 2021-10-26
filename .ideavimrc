@@ -3,6 +3,8 @@ let mapleader=" "
 set number
 set relativenumber
 
+set clipboard+=unnamed
+
 set ignorecase
 set smartcase
 
@@ -12,22 +14,31 @@ set surround
 set multiple-cursors
 set exchange
 set easymotion
-
 map H ^
 map L $
 map ; :
 map <C-n> :nohlsearch<CR>
-map <leader>r <Action>(RenameElement)
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>e <Plug>(easymotion-s)
-map <leader>f <Action>(FindInPath)
-map <leader>s <Action>(SearchEverywhere)
+map <leader>rn <Action>(RenameElement)
+map <leader>fs <Action>(FindInPath)
+map <leader>ff <Action>(SearchEverywhere)
 imap jj <Esc>
 map <leader>f <Action>(FindInPath)
+map ]g <Action>(GotoNextError)zz
+map [g <Action>(GotoPreviousError)zz
 
 nmap n nzz
 nmap N Nzz
 
 set highlightedyank
 let g:highlightedyank_highlight_duration = "2000"
+
+" ==============
+" NERDTree
+" ==============
+set NERDTree
+map <F8> :NERDTreeToggle<Cr>
+map <leader>fc :NERDTreeFocus<Cr>
+
